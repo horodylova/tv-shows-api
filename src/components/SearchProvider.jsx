@@ -11,10 +11,10 @@ function SearchProvider() {
     })
 
   return (
-    <div> 
+    <> 
         <FormSearchBar nameAndCountry={nameAndCountry} setnameAndCountry={setnameAndCountry}/>
         <ListOfResults nameAndCountry={nameAndCountry}/>
-    </div>
+    </>
   )
 }
 

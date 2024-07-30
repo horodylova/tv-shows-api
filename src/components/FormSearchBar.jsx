@@ -19,6 +19,7 @@ function FormSearchBar({ nameAndCountry, setnameAndCountry }) {
   }
 
   return (
+    <div>
     <form onSubmit={handleSubmit}>
       <label>
         Enter a name of person:
@@ -38,8 +39,9 @@ function FormSearchBar({ nameAndCountry, setnameAndCountry }) {
           onChange={handleChange}
         />
       </label>
-      <button type="submit">Search</button>
+      <input type="submit" value="Submit"/>
     </form>
+    </div>
   );
 }
 
