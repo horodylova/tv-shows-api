@@ -1,20 +1,31 @@
- import { useState } from "react";
- import Card from "./Card";
+import React, { useEffect, useState } from 'react';
+import Card from "./Card";
 
+function ListOfResults({ nameAndCountry }) {
+  const [persons, setPersons] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-function ListOfResults({state}) {
-    const [persons, setPersons] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('error')
+  useEffect(() => {
+    if (nameAndCountry.name || nameAndCountry.country) {
+      setIsLoading(true);
+      fetch(`https://api.tvmaze.com/search/people?q=${nameAndCountry.name}&country=${nameAndCountry.country}`)
+        .then(response => response.json())
+        .then(data => {
+          setPersons(data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
+    }
+  }, [nameAndCountry]);
 
-    const url = 'https://api.tvmaze.com/search/people'
-    fetch(url, )
-  
-    return (
-   <ul>
-    <Card/>
-   </ul>
-  )
+  return (
+    <ul>
+      {isLoading ? <p>Loading...</p> : <Card persons={persons} />}
+    </ul>
+  );
 }
 
-export default ListOfResults
+export default ListOfResults;

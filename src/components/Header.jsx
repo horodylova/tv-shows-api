@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div>Header</div>
+    <div>Find the actor by name and country name</div>
   )
 }
 
