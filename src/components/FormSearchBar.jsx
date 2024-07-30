@@ -1,14 +1,15 @@
  import { useState } from "react"
 
-function FormSearchBar() {
-    const [state, setState] = useState({
-        name: "",
-        country: ""
-    })
+function FormSearchBar({state, setState}) {
+    
 
     function handleSubmit (event) {
         event.preventDefault()
         console.log("Form data submitted:", state);
+        setState({
+            name: "",
+            country: ""
+        })
 
     }
 

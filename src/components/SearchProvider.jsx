@@ -5,13 +5,15 @@ import ListOfResults from "./ListOfResults";
 
 function SearchProvider() {
 
-  const [searchName, setSearchName] = useState('')
-  const [searchCountry, setSearchCountry] = useState("")
+    const [state, setState] = useState({
+        name: "",
+        country: ""
+    })
 
   return (
     <div> 
-        <FormSearchBar setSearchCountry={setSearchCountry} setSearchTerm={setSearchName}/>
-        <ListOfResults searchCountry= {searchCountry} searchTerm={searchName}/>
+        <FormSearchBar state={state} setState={setState}/>
+        <ListOfResults  state={state}/>
     </div>
   )
 }
