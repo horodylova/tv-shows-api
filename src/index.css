@@ -39,10 +39,7 @@ input[type=text], select {
 
   ul {
     padding-left: 2rem;
-    list-style-type: none;
-  
-    list-style-type: square;
-   
+    list-style-type: none;  
     
   }
   
